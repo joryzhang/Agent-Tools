@@ -14,13 +14,13 @@ public class WebMvcConfg implements WebMvcConfigurer {
                 // 设置允许跨域请求的域名
                 .allowedOrigins(
                         "http://localhost:8001",
+                        "https://ok.jory.uno",
                         "http://localhost:9527",
                         "http://127.0.0.1:8081",
                         "http://129.153.56.108:8082",
                         "http://129.153.56.108:5782",
-                        "http://129.153.56.108:8083",
-                        "http://123.249.88.185:8083",// 添加你的服务器域名
-                        "http://123.249.88.185:8080" // 添加你的服务器域名
+                        "http://129.153.56.108:8083"// 添加你的服务器域名
+
                 )
                 // 是否允许证书 不再默认开启
                 .allowCredentials(true)
