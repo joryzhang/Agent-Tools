@@ -1,0 +1,24 @@
+version: '3.8'
+
+services:
+  rag-backend:
+    build: .
+    container_name: rag-service
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./data:/app/data
+      - ./.env:/app/.env
+    environment:
+      - TZ=Asia/Shanghai
+      # 显式限制并发
+      - WEB_CONCURRENCY=1
+    restart: unless-stopped
+    # 资源限制建议 (防止把服务器弄死机)
+    deploy:
+      resources:
+        limits:
+          # 限制使用 90% 的 CPU
+          cpus: '0.90'
+          # 限制内存，防止 OOM 导致服务器死机
+          memory: 4G
